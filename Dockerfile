@@ -18,8 +18,6 @@ USER juser
 # copy jar from the first stage
 COPY --from=builder target/robodog-0.0.1-SNAPSHOT.jar robodog-0.0.1-SNAPSHOT.jar
 
-ENV PORT=8080
-
 EXPOSE 8080
 
 CMD ["java", "-jar", "robodog-0.0.1-SNAPSHOT.jar"]
