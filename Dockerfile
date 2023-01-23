@@ -20,7 +20,7 @@ WORKDIR /app
 #USER juser
 
 # copy jar from the first stage
-COPY --from=builder target/robodog-0.0.1-SNAPSHOT.jar my-app.jar
+COPY --from=builder /app/target/*.jar my-app.jar
 
 
 CMD ["java", "-jar", "my-app.jar"]
