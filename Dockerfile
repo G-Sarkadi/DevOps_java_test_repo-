@@ -21,6 +21,6 @@ WORKDIR /app
 
 # copy jar from the first stage
 COPY --from=builder /app/target/*.jar my-app.jar
-
+EXPOSE 8080
 
 CMD ["java", "-jar", "my-app.jar"]
