@@ -20,7 +20,7 @@ RUN adduser -D juser
 USER juser
 
 # copy jar from the first stage
-COPY --from=builder target/*.jar my-app.jar
+COPY --from=builder /app/target/*.jar my-app.jar
 
 
 CMD ["java", "-jar", "my-app.jar"]
