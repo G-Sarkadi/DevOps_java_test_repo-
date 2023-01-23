@@ -3,7 +3,7 @@ FROM maven:3.8.7-eclipse-temurin-17-alpine@sha256:81dc8fdb1c1e4e56f47a7b85d30d25
 
 # add pom.xml and source code
 ADD ./pom.xml pom.xml
-ADD ./src src/
+ADD ./src /src
 
 # package jar
 RUN mvn clean package -DskipTests
@@ -17,6 +17,8 @@ USER juser
 
 # copy jar from the first stage
 COPY --from=builder target/robodog-0.0.1-SNAPSHOT.jar robodog-0.0.1-SNAPSHOT.jar
+
+ENV PORT=8080
 
 EXPOSE 8080
 
