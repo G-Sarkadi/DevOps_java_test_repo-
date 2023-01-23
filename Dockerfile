@@ -15,9 +15,9 @@ FROM eclipse-temurin:17-jre-alpine@sha256:00f33e079314d395f7b0d16f567c2bcd14c780
 
 WORKDIR /app
 
-## Add user
-#RUN adduser -D juser
-#USER juser
+# Add user
+RUN adduser -D juser
+USER juser
 
 # copy jar from the first stage
 COPY --from=builder /app/target/*.jar my-app.jar
