@@ -21,6 +21,8 @@ USER juser
 
 # copy jar from the first stage
 COPY --from=builder /app/target/*.jar my-app.jar
-EXPOSE 8080
+#EXPOSE 8080
+
+ENV PORT=8080
 
 CMD ["java", "-jar", "my-app.jar"]
